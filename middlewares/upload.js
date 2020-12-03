@@ -1,13 +1,13 @@
-const multer=require("multer");
+const multer = require("multer");
 const fileExtension = require('file-extension')
 
-const storage=multer.diskStorage({
+const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, './assets/images/')
     },
-    filename:function (req, file, cb) {
+    filename: function (req, file, cb) {
         cb(null, file.originalname)
-      }
+    }
 })
 
 
@@ -18,7 +18,7 @@ const upload = multer({
         fileSize: 2000000
     },
     fileFilter(req, file, cb) {
-        if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
+        if (!file.originalname.match(/\.(jpg|jpeg|png|JPG|JPEG|PNG)$/)) {
             //Error 
             cb(new Error('Please upload JPG and PNG images only!'))
         }
@@ -27,4 +27,4 @@ const upload = multer({
     }
 }).single("image");
 
-exports.upload=upload;
+exports.upload = upload;
