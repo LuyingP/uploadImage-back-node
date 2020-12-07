@@ -10,7 +10,7 @@ const uploadUnImage = async (req, res) => {
             if (req.file == undefined) {
                 res.send("undefine");
             } else {
-                res.json({ imageUrl: `http://localhost:3030/upload/${req.file.filename}` })
+                res.json({ imageUrl: `https://uploadimagenode.herokuapp.com/upload/${req.file.filename}` })
                 // res.send(req.file)
 
             }
