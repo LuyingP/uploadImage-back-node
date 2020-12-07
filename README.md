@@ -8,9 +8,6 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
-      Demo
-    </a>
     <span> | </span>
     <a href="https://luyingp.github.io/uploadImage-front-angular/">
       Solution
@@ -67,7 +64,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/your-user-name/your-project-name
+$ git clone https://github.com/LuyingP/uploadImage-back-node
 
 # Install dependencies
 $ npm install
