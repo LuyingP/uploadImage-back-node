@@ -7,7 +7,7 @@ const fileController = require("./controllers/uploadController")
 const ejs = require('ejs');
 app.set('view engine', 'ejs');
 const corsOption = {
-    origin: "http://localhost:4200"
+    origin: "https://luyingp.github.io/uploadImage-front-angular/"
 }
 
 app.use(cors(corsOption));
