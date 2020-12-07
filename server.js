@@ -6,12 +6,33 @@ const fs = require('fs')
 const fileController = require("./controllers/uploadController")
 const ejs = require('ejs');
 app.set('view engine', 'ejs');
-const corsOption = {
-    origin: "https://luyingp.github.io/uploadImage-front-angular/"
-}
 
-app.use(cors(corsOption));
+var allowlist = ['https://luyingp.github.io/uploadImage-front-angular/','https://luyingp.github.io',"http://localhost:4200"];
+var corsOptions = {
+    origin: function (origin, callback) {
+   
+           if (!origin) {
+               return callback(null, true);
+           }
+   
+           if (allowlist.indexOf(origin) === -1) {
+   
+               var msg = 'The CORS policy for this site does not ' +
+                   'allow access from the specified Origin.';
+               return callback(new Error(msg), false);
+           }
+           return callback(null, true);
+       }
+   };
 
+app.use(cors(corsOptions));
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 app.use(express.static('assets/images'));
 // app.use(express.static('views'));
 // app.get('/', (req, res) => res.render('index'));
