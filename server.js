@@ -61,6 +61,6 @@ var deleteFile = schedule.scheduleJob('0 0 * * *', function () {
 
 app.listen(PORT, () => {
     deleteFile;
-    console.log("server is running at ${PORT}");
+    console.log(`server is running at ${PORT}`);
 })
 
