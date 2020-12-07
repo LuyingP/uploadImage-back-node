@@ -4,6 +4,7 @@ const cors = require("cors")
 const schedule = require('node-schedule');
 const fs = require('fs')
 const fileController = require("./controllers/uploadController")
+const PORT=process.env.PORT || 3030
 const ejs = require('ejs');
 app.set('view engine', 'ejs');
 
@@ -58,8 +59,8 @@ var deleteFile = schedule.scheduleJob('0 0 * * *', function () {
 });
 
 
-app.listen(3030, () => {
+app.listen(PORT, () => {
     deleteFile;
-    console.log("server is running at 3030");
+    console.log("server is running at ${PORT}");
 })
 
